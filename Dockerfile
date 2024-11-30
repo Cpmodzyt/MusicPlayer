@@ -1,20 +1,15 @@
-FROM python:3.9-slim-buster
+# Use an official Python runtime as a parent image
+FROM python:3.10-slim
 
-# Updating Packages
-RUN apt update && apt upgrade -y
-RUN apt install git curl python3-pip ffmpeg -y
+# Set the working directory in the container
+WORKDIR /app/MusicPlayer
 
-# Copying Requirements
-COPY requirements.txt /requirements.txt
+# Copy the current directory contents into the container at /app/MusicPlayer
+COPY ./MusicPlayer /app/MusicPlayer
 
-# Installing Requirements
-RUN cd /
-RUN pip3 install --upgrade pip
-RUN pip3 install -U -r requirements.txt
+# Install any necessary dependencies
+# Add a requirements.txt file to the MusicPlayer directory for this step
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Setting up working directory
-RUN mkdir /MusicPlayer
-WORKDIR /MusicPlayer
-
-# Running Music Player Bot
+# Set the command to execute the script
 CMD ["python", "main.py"]
