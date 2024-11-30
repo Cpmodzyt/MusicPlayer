@@ -1,15 +1,17 @@
-# Use an official Python runtime as a parent image
-FROM python:3.10-slim
+# Use an official Python runtime as a base image
+FROM python:3.9-slim
 
 # Set the working directory in the container
-WORKDIR /app/MusicPlayer
+WORKDIR /app
 
-# Copy the current directory contents into the container at /app/MusicPlayer
-COPY ./MusicPlayer /app/MusicPlayer
+# Copy the current directory contents into the container
+COPY . /app
 
-# Install any necessary dependencies
-# Add a requirements.txt file to the MusicPlayer directory for this step
+# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the command to execute the script
+# Make port 80 available to the outside world (if your app uses networking)
+EXPOSE 80
+
+# Define the command to run the application
 CMD ["python", "main.py"]
