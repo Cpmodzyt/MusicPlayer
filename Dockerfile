@@ -16,9 +16,5 @@ RUN pip3 install -U -r requirements.txt
 RUN mkdir /MusicPlayer
 WORKDIR /MusicPlayer
 
-# Preparing for the Startup
-COPY startup.sh /startup.sh
-RUN chmod +x /startup.sh
-
 # Running Music Player Bot
-CMD ["/bin/bash", "/startup.sh"]
+CMD ["python", "main.py"]
