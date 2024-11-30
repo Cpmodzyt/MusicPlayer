@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo ">> FETCHING UPSTREAM..."
-git clone https://github.com/AsmSafone/MusicPlayer /MusicPlayer
+git clone https://github.com/cpmodzyt/MusicPlayer /MusicPlayer
 
 echo ">> INSTALLING REQUIREMENTS..."
 cd /MusicPlayer
@@ -28,4 +28,4 @@ echo "
                                           
 MUSIC PLAYER USERBOT IS SUCCESSFULLY DEPLOYED!
 "
-python3 main.py
+python main.py
